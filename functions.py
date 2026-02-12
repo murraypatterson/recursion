@@ -61,13 +61,15 @@ def ack(m,n) :
 # ack(3,4) = 2^(n+3) - 3 = 125
 # ack(4,1) = 2^2^2^2 - 3 = 65533
 
-# Ackermann's function (iterative version) *** incorrect
+# Ackermann's function (iterative version)
+# credit: Alexandre Geraldo
 def acki(m,n) :
     s = []
     s.append(m)
     while s :
         m = s.pop()
-        if m == 0 : return n+1
+        if m == 0 :
+            n = n+1
         elif n == 0 :
             n = 1
             s.append(m-1)
@@ -75,3 +77,4 @@ def acki(m,n) :
             n = n-1
             s.append(m-1)
             s.append(m)
+    return n
